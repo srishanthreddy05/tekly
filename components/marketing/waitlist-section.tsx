@@ -65,7 +65,10 @@ export function WaitlistSection() {
     <section id="waitlist" className="w-full py-24 lg:py-32 border-b border-border bg-background relative overflow-hidden">
       
       {/* Background visual spotlight */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[140px] pointer-events-none -z-10" />
+      <div className="absolute inset-0 pointer-events-none -z-10 overflow-hidden">
+        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[350px] h-[350px] bg-neon-green/8 rounded-full blur-[120px]" />
+        <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-[350px] h-[350px] bg-neon-yellow/10 rounded-full blur-[120px]" />
+      </div>
 
       <div className="mx-auto max-w-xl px-4 sm:px-6 lg:px-8 text-center flex flex-col gap-6 relative">
         
@@ -159,7 +162,7 @@ export function WaitlistSection() {
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full h-10 font-bold rounded-lg bg-gradient-to-r from-primary to-indigo-600 hover:opacity-95 text-primary-foreground shadow-md cursor-pointer mt-2 text-xs flex items-center justify-center gap-1.5"
+                className="w-full h-10 font-bold rounded-lg bg-gradient-to-r from-primary via-indigo-600 to-neon-green hover:opacity-95 text-primary-foreground shadow-[0_4px_15px_rgba(99,102,241,0.15)] hover:shadow-[0_4px_20px_rgba(57,255,20,0.22)] cursor-pointer mt-2 text-xs flex items-center justify-center gap-1.5 transition-all duration-300 border border-transparent"
               >
                 {isSubmitting ? (
                   <>

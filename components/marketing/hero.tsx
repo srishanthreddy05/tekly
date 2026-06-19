@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Instagram } from "@/components/ui/icons";
+import Link from "next/link";
 
 export function Hero() {
   const scrollToSection = (id: string) => {
@@ -40,22 +41,22 @@ export function Hero() {
 
   const channelPills = [
     { name: "Instagram", icon: Instagram, color: "text-pink-500", delay: 0 },
-    { name: "WhatsApp", icon: MessageCircle, color: "text-emerald-500", delay: 1.2 },
+    { name: "WhatsApp", icon: MessageCircle, color: "text-neon-green", delay: 1.2 },
     { name: "Facebook", icon: MessageSquare, color: "text-blue-600", delay: 0.6 },
     { name: "Email", icon: Mail, color: "text-amber-500", delay: 1.8 },
     { name: "SMS", icon: MessageSquare, color: "text-indigo-500", delay: 2.4 },
-    { name: "Voice AI", icon: PhoneCall, color: "text-cyan-500", delay: 0.8 },
+    { name: "Voice AI", icon: PhoneCall, color: "text-neon-yellow", delay: 0.8 },
     { name: "Telegram", icon: Send, color: "text-sky-400", delay: 1.5 },
     { name: "CRM", icon: Database, color: "text-purple-500", delay: 2.1 },
   ];
 
   return (
-    <section className="relative w-full overflow-hidden py-24 lg:py-36 border-b border-border bg-background">
+    <section className="relative w-full overflow-hidden py-24 lg:py-36 border-b border-border bg-transparent">
       {/* Visual background details */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-full pointer-events-none -z-10">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--border)_1px,transparent_1px),linear-gradient(to_bottom,var(--border)_1px,transparent_1px)] bg-[size:32px_32px] opacity-[0.06]" />
-        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[140px] -translate-y-1/2" />
-        <div className="absolute top-1/2 right-1/4 w-[400px] h-[400px] bg-indigo-500/5 rounded-full blur-[120px] translate-y-1/2" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--border)_1px,transparent_1px),linear-gradient(to_bottom,var(--border)_1px,transparent_1px)] bg-[size:32px_32px] opacity-[0.08]" />
+        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-neon-green/18 rounded-full blur-[140px] -translate-y-1/2" />
+        <div className="absolute top-1/2 right-1/4 w-[450px] h-[450px] bg-neon-yellow/12 rounded-full blur-[130px] translate-y-1/2" />
       </div>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -65,15 +66,15 @@ export function Hero() {
           <div className="lg:col-span-6 flex flex-col gap-6 text-left z-10">
             
             {/* Minimal Badge */}
-            <div className="inline-flex items-center gap-1.5 self-start px-3 py-1 rounded-full bg-accent text-accent-foreground text-xs font-semibold border border-border">
-              <Sparkles className="w-3 h-3 text-primary animate-pulse" />
+            <div className="inline-flex items-center gap-1.5 self-start px-3 py-1 rounded-full bg-accent text-accent-foreground text-xs font-semibold border border-border shadow-[0_0_12px_rgba(57,255,20,0.06)] hover:border-neon-green/30 transition-all duration-300">
+              <Sparkles className="w-3 h-3 text-neon-green animate-pulse" />
               <span>Multi-Channel Customer Engagement</span>
             </div>
 
             {/* Headline */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-[1.08] font-sans">
               One Platform.
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-foreground via-foreground to-muted-foreground/60 mt-1">
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-foreground via-primary to-neon-green mt-1">
                 Every Customer Conversation.
               </span>
             </h1>
@@ -87,18 +88,19 @@ export function Hero() {
             <div className="flex flex-row gap-4 mt-2">
               <Button
                 onClick={() => scrollToSection("waitlist")}
-                className="h-12 px-8 font-bold rounded-full bg-gradient-to-r from-primary to-indigo-600 hover:opacity-95 text-primary-foreground shadow-lg cursor-pointer text-xs"
+                className="h-12 px-8 font-bold rounded-full bg-gradient-to-r from-primary via-indigo-600 to-neon-green hover:opacity-95 text-primary-foreground shadow-[0_4px_20px_rgba(99,102,241,0.2)] hover:shadow-[0_4px_25px_rgba(57,255,20,0.25)] hover:-translate-y-0.5 cursor-pointer text-xs transition-all duration-300 border border-transparent"
               >
                 Join Waitlist
                 <ArrowRight className="ml-1.5 h-4 w-4" />
               </Button>
-              <Button
-                variant="ghost"
-                onClick={() => scrollToSection("vision")}
-                className="h-12 px-8 font-semibold rounded-full border border-border bg-card/40 hover:bg-accent/40 text-foreground cursor-pointer text-xs"
-              >
-                Learn More
-              </Button>
+              <Link href="/about">
+                <Button
+                  variant="ghost"
+                  className="h-12 px-8 font-semibold rounded-full border border-border bg-card/40 hover:bg-accent/40 hover:border-neon-green/30 text-foreground cursor-pointer text-xs transition-all duration-300"
+                >
+                  Learn More
+                </Button>
+              </Link>
             </div>
 
             {/* Trust Badges Row */}
@@ -271,11 +273,11 @@ export function Hero() {
                         <div className="grid grid-cols-3 gap-1">
                           <div className="bg-accent/40 border border-border/60 p-1 rounded flex items-center justify-between">
                             <span className="text-[7.5px] font-semibold text-foreground">Instagram</span>
-                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                            <span className="w-1.5 h-1.5 rounded-full bg-neon-green shadow-[0_0_6px_var(--neon-green)] animate-pulse" />
                           </div>
                           <div className="bg-accent/40 border border-border/60 p-1 rounded flex items-center justify-between">
                             <span className="text-[7.5px] font-semibold text-foreground">WhatsApp</span>
-                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                            <span className="w-1.5 h-1.5 rounded-full bg-neon-green shadow-[0_0_6px_var(--neon-green)] animate-pulse" />
                           </div>
                           <div className="border border-dashed border-border/80 hover:border-primary/45 hover:bg-primary/5 p-1 rounded flex items-center justify-center cursor-pointer transition-colors duration-150">
                             <span className="text-[7px] font-bold text-muted-foreground hover:text-primary leading-none">+ Add</span>
@@ -289,10 +291,10 @@ export function Hero() {
                         <div className="flex flex-col gap-1">
                           <div className="flex justify-between items-center bg-accent/30 px-1.5 py-1 rounded">
                             <div className="flex items-center gap-1.5">
-                              <span className="w-1 h-1 rounded-full bg-primary" />
+                              <span className="w-1 h-1 rounded-full bg-neon-yellow shadow-[0_0_5px_var(--neon-yellow)]" />
                               <span className="text-[8px] font-medium text-foreground">Lead Closer Agent</span>
                             </div>
-                            <span className="text-[7px] text-emerald-500 font-bold">14 active runs</span>
+                            <span className="text-[7px] text-neon-green font-bold">14 active runs</span>
                           </div>
                           <div className="flex justify-between items-center bg-accent/30 px-1.5 py-1 rounded">
                             <div className="flex items-center gap-1.5">
@@ -316,14 +318,14 @@ export function Hero() {
                               <span className="text-[8px] font-semibold text-foreground truncate">Reel Keyword trigger 'GROWTH'</span>
                               <span className="text-[6.5px] text-muted-foreground mt-0.2 leading-none">Comment &rarr; Instagram DM Reply</span>
                             </div>
-                            <span className="text-[7px] bg-emerald-500/10 text-emerald-500 border border-emerald-500/20 px-1 py-0.2 rounded font-bold shrink-0">Running</span>
+                            <span className="text-[7px] bg-neon-green/10 text-neon-green border border-neon-green/35 px-1 py-0.2 rounded font-bold shrink-0">Running</span>
                           </div>
                           <div className="flex justify-between items-center border-t border-border/50 pt-1 mt-0.5">
                             <div className="flex flex-col min-w-0">
                               <span className="text-[8px] font-semibold text-foreground truncate">Outbound Call Sequence</span>
                               <span className="text-[6.5px] text-muted-foreground mt-0.2 leading-none">Instant call on form submit</span>
                             </div>
-                            <span className="text-[7px] bg-emerald-500/10 text-emerald-500 border border-emerald-500/20 px-1 py-0.2 rounded font-bold shrink-0">Running</span>
+                            <span className="text-[7px] bg-neon-green/10 text-neon-green border border-neon-green/35 px-1 py-0.2 rounded font-bold shrink-0">Running</span>
                           </div>
                           <div className="border border-dashed border-border/80 hover:border-primary/45 hover:bg-primary/5 py-0.5 rounded flex items-center justify-center cursor-pointer transition-colors duration-150 mt-0.5">
                             <span className="text-[7.5px] font-bold text-muted-foreground hover:text-primary leading-none">+ Create New Automation</span>
@@ -338,14 +340,14 @@ export function Hero() {
                 </div>
 
                 {/* Overlay Floating Voice Agent Status card */}
-                <div className="absolute bottom-3 left-14 bg-card border border-border rounded-xl p-2.5 shadow-lg flex items-center gap-2.5 max-w-[145px] transform translate-y-1 z-20">
-                  <div className="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center text-primary shrink-0 relative">
-                    <span className="absolute inset-0 rounded-lg bg-primary/20 animate-ping" />
-                    <PhoneCall className="w-3.5 h-3.5" />
+                <div className="absolute bottom-3 left-14 bg-card border border-border/80 rounded-xl p-2.5 shadow-lg flex items-center gap-2.5 max-w-[145px] transform translate-y-1 z-20 hover:border-neon-green/45 transition-colors duration-300">
+                  <div className="w-7 h-7 rounded-lg bg-neon-green/15 flex items-center justify-center text-neon-green shrink-0 relative">
+                    <span className="absolute inset-0 rounded-lg bg-neon-green/20 animate-ping" />
+                    <PhoneCall className="w-3.5 h-3.5 animate-pulse" />
                   </div>
                   <div className="flex flex-col leading-none">
                     <span className="text-[10px] font-bold text-foreground font-sans">Voice Agent</span>
-                    <span className="text-[7.5px] text-emerald-500 font-semibold mt-1">Live & Active</span>
+                    <span className="text-[7.5px] text-neon-green font-bold mt-1">Live & Active</span>
                   </div>
                 </div>
 

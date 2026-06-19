@@ -171,7 +171,12 @@ export function Preview() {
   ];
 
   return (
-    <section id="features" className="w-full py-20 lg:py-28 border-b border-border bg-background">
+    <section id="features" className="relative w-full py-20 lg:py-28 border-b border-border bg-background overflow-hidden">
+      {/* Neon glow backdrops */}
+      <div className="absolute inset-0 pointer-events-none -z-10">
+        <div className="absolute -top-40 right-10 w-[400px] h-[400px] bg-neon-green/6 rounded-full blur-[120px]" />
+        <div className="absolute -bottom-40 left-10 w-[400px] h-[400px] bg-neon-yellow/8 rounded-full blur-[120px]" />
+      </div>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
         {/* Header copy */}

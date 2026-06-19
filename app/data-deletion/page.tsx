@@ -7,7 +7,12 @@ export default function DataDeletionPage() {
     <div className="flex flex-col min-h-screen w-full">
       <Navbar />
 
-      <main className="flex-grow py-20 lg:py-28 bg-background relative overflow-hidden text-left">
+      <main className="flex-grow py-20 lg:py-28 bg-transparent relative overflow-hidden text-left">
+        {/* Background visual spotlight */}
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-full max-w-7xl h-full pointer-events-none -z-10">
+          <div className="absolute top-0 left-1/4 w-[350px] h-[350px] bg-neon-green/18 rounded-full blur-[110px] pointer-events-none" />
+          <div className="absolute top-1/3 right-1/4 w-[350px] h-[350px] bg-neon-yellow/12 rounded-full blur-[110px] pointer-events-none" />
+        </div>
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 flex flex-col gap-10">
           
           {/* Header */}

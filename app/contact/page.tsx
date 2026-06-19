@@ -53,12 +53,13 @@ export default function ContactPage() {
     <div className="flex flex-col min-h-screen w-full">
       <Navbar />
 
-      <main className="flex-grow py-20 lg:py-28 bg-background relative overflow-hidden text-left">
+      <main className="flex-grow py-20 lg:py-28 bg-transparent relative overflow-hidden text-left">
         
         {/* Background visual details */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--border)_1px,transparent_1px),linear-gradient(to_bottom,var(--border)_1px,transparent_1px)] bg-[size:32px_32px] opacity-[0.06] pointer-events-none" />
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-full max-w-7xl h-full pointer-events-none -z-10">
-          <div className="absolute top-0 left-1/4 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px]" />
+          <div className="absolute top-0 left-1/4 w-[350px] h-[350px] bg-neon-green/18 rounded-full blur-[110px]" />
+          <div className="absolute top-0 right-1/4 w-[350px] h-[350px] bg-neon-yellow/12 rounded-full blur-[110px]" />
         </div>
 
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
