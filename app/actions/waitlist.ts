@@ -2,8 +2,8 @@
 
 import { collection, addDoc, getDocs, query, where, serverTimestamp } from "firebase/firestore";
 import { db } from "@/lib/firebase";
-import { waitlistSchema, type WaitlistInput } from "@/lib/validation";
-import { sendWelcomeEmail } from "@/lib/brevo";
+import { waitlistSchema, type WaitlistInput } from "@/lib/validators";
+import { sendWelcomeEmail } from "@/lib/mailer";
 
 export type WaitlistResponse = {
   success: boolean;
@@ -45,7 +45,7 @@ export async function joinWaitlist(data: WaitlistInput): Promise<WaitlistRespons
     // 4. Sync with Brevo welcome transactional email
     const brevoResult = await sendWelcomeEmail({ email, name });
 
-    if (!brevoResult.success && !brevoResult.bypassed) {
+    if (!brevoResult.success) {
       console.warn("[Waitlist Warning]: Brevo sync failed but firestore write succeeded:", brevoResult.error);
     }
 
