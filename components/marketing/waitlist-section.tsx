@@ -121,7 +121,7 @@ export function WaitlistSection() {
                 <Input
                   id="name-input"
                   type="text"
-                  placeholder="Alex Rivera"
+                  placeholder="Srishanth Reddy"
                   className="h-10 bg-background rounded-lg border border-input focus:border-primary text-sm shadow-inner"
                   disabled={isSubmitting}
                   aria-invalid={!!errors.name}
@@ -142,7 +142,7 @@ export function WaitlistSection() {
                 <Input
                   id="email-input"
                   type="email"
-                  placeholder="alex@company.com"
+                  placeholder="srishanthreddyy05@gmail.com"
                   className="h-10 bg-background rounded-lg border border-input focus:border-primary text-sm shadow-inner"
                   disabled={isSubmitting}
                   aria-invalid={!!errors.email}

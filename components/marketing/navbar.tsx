@@ -108,25 +108,9 @@ export function Navbar() {
 
         {/* Global Utilities */}
         <div className="hidden md:flex items-center gap-4">
-          {mounted && (
-            <Button
-              variant="ghost"
-              size="icon"
-              className="text-muted-foreground cursor-pointer rounded-full h-8 w-8 hover:bg-accent/40"
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              aria-label="Toggle dark mode"
-            >
-              {theme === "dark" ? (
-                <Sun className="h-4 w-4 transition-all" />
-              ) : (
-                <Moon className="h-4 w-4 transition-all" />
-              )}
-            </Button>
-          )}
-
           <Link
-            href="/#waitlist-form"
-            onClick={(e) => handleNavClick(e, "waitlist-form")}
+            href="/#waitlist"
+            onClick={(e) => handleNavClick(e, "waitlist")}
             className={cn(
               buttonVariants({ variant: "default", size: "sm" }),
               "font-medium cursor-pointer rounded-full text-xs px-4"
@@ -139,25 +123,9 @@ export function Navbar() {
 
         {/* Mobile Controls */}
         <div className="flex md:hidden items-center gap-2">
-          {mounted && (
-            <Button
-              variant="ghost"
-              size="icon"
-              className="text-muted-foreground rounded-full h-8 w-8 hover:bg-accent/40"
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              aria-label="Toggle dark mode"
-            >
-              {theme === "dark" ? (
-                <Sun className="h-4 w-4" />
-              ) : (
-                <Moon className="h-4 w-4" />
-              )}
-            </Button>
-          )}
-
           <Link
-            href="/#waitlist-form"
-            onClick={(e) => handleNavClick(e, "waitlist-form")}
+            href="/#waitlist"
+            onClick={(e) => handleNavClick(e, "waitlist")}
             className={cn(
               buttonVariants({ variant: "default", size: "xs" }),
               "rounded-full text-[11px] px-3 font-semibold mr-1 animate-shimmer"

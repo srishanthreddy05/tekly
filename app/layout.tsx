@@ -25,6 +25,11 @@ export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || "https://tekly.in"),
   title: "Tekly | Multi-Channel Customer Engagement Platform",
   description: "Tekly helps businesses automate customer conversations, streamline communication, and manage customer engagement from one intelligent platform.",
+  icons: {
+    icon: "/logo.jpeg",
+    shortcut: "/logo.jpeg",
+    apple: "/logo.jpeg",
+  },
   keywords: [
     "Customer Engagement",
     "Instagram Automation",
@@ -133,8 +138,8 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-background text-foreground transition-colors duration-200">
         <ThemeProvider
           attribute="class"
-          defaultTheme="light" // Default Light Mode as requested
-          enableSystem
+          defaultTheme="light"
+          forcedTheme="light"
           disableTransitionOnChange
         >
           {children}

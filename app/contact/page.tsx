@@ -85,8 +85,8 @@ export default function ContactPage() {
                   </div>
                   <div className="flex flex-col">
                     <span className="text-[10px] uppercase font-bold text-muted-foreground leading-none">Email Address</span>
-                    <a href="mailto:hello@tekly.in" className="text-sm font-bold text-foreground mt-1.5 leading-none hover:underline">
-                      hello@tekly.in
+                    <a href="mailto:srishanthreddyy05@gmail.com" className="text-sm font-bold text-foreground mt-1.5 leading-none hover:underline">
+                      srishanthreddyy05@gmail.com
                     </a>
                   </div>
                 </div>
@@ -147,7 +147,7 @@ export default function ContactPage() {
                     <Input
                       id="name-input"
                       type="text"
-                      placeholder="Alex Rivera"
+                      placeholder="Srishanth Reddy"
                       className="h-10 bg-background border border-input rounded-lg focus:border-primary text-sm shadow-inner"
                       disabled={isSubmitting}
                       {...register("name")}
@@ -167,7 +167,7 @@ export default function ContactPage() {
                     <Input
                       id="email-input"
                       type="email"
-                      placeholder="alex@company.com"
+                      placeholder="srishanthreddyy05@gmail.com"
                       className="h-10 bg-background border border-input rounded-lg focus:border-primary text-sm shadow-inner"
                       disabled={isSubmitting}
                       {...register("email")}

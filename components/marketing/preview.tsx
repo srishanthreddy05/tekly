@@ -85,7 +85,7 @@ export function Preview() {
       content: (
         <div className="flex flex-col gap-1.5 text-left">
           <div className="flex justify-between items-center text-[8px] p-1 rounded bg-accent/30 border border-transparent">
-            <span className="font-semibold text-foreground">Alex R. (Instagram)</span>
+            <span className="font-semibold text-foreground">Adithya (Instagram)</span>
             <span className="text-muted-foreground">12s ago</span>
           </div>
           <div className="flex justify-between items-center text-[8px] p-1 rounded bg-accent/30 border border-transparent">
@@ -105,10 +105,10 @@ export function Preview() {
       content: (
         <div className="flex flex-col gap-1.5 text-left">
           <div className="flex items-center gap-1.5">
-            <div className="w-5.5 h-5.5 rounded-full bg-primary/10 flex items-center justify-center text-[8px] font-bold text-primary">SC</div>
+            <div className="w-5.5 h-5.5 rounded-full bg-primary/10 flex items-center justify-center text-[8px] font-bold text-primary">YS</div>
             <div className="flex flex-col leading-none">
-              <span className="text-[9px] font-bold text-foreground">Sarah Chen</span>
-              <span className="text-[7.5px] text-muted-foreground mt-0.5">sarah@chen.co</span>
+              <span className="text-[9px] font-bold text-foreground">Yashwanth</span>
+              <span className="text-[7.5px] text-muted-foreground mt-0.5">yashwanth@tekly.in</span>
             </div>
           </div>
         </div>
