@@ -64,10 +64,8 @@ export const metadata: Metadata = {
     siteName: "Tekly",
     images: [
       {
-        url: "/meta.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Tekly | Customer Engagement. Simplified.",
+        url: "/logo.jpeg",
+        alt: "Tekly Logo",
       },
     ],
     locale: "en_US",
@@ -77,7 +75,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Tekly | Multi-Channel Customer Engagement Platform",
     description: "Tekly helps businesses automate customer conversations, manage relationships, and simplify communication from one unified platform.",
-    images: ["/meta.jpg"],
+    images: ["/logo.jpeg"],
   },
   other: {
     "facebook-domain-verification": "YOUR_META_VERIFICATION_TOKEN_HERE",
