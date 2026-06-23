@@ -30,34 +30,44 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || "https://tekly.in"),
   title: "Tekly | Multi-Channel Customer Engagement Platform",
-  description: "Tekly helps businesses automate customer conversations, streamline communication, and manage customer engagement from one intelligent platform.",
+  description: "Tekly helps businesses automate customer conversations, manage relationships, and simplify communication from one unified platform.",
+  alternates: {
+    canonical: "/",
+  },
   icons: {
     icon: "/logo.jpeg",
     shortcut: "/logo.jpeg",
     apple: "/logo.jpeg",
   },
   keywords: [
+    "Tekly",
     "Customer Engagement",
     "Instagram Automation",
-    "CRM",
-    "AI Automation",
-    "WhatsApp Automation",
     "Business Automation",
+    "CRM",
+    "Lead Management",
+    "WhatsApp Automation",
+    "AI Agents",
+    "AI Voice",
     "Social Media Automation",
-    "India",
+    "Automation Software",
+    "Made in India",
+    "Customer Communication"
   ],
   authors: [{ name: "Thrivex Labs" }],
+  creator: "Thrivex Labs",
+  publisher: "Thrivex Labs",
   openGraph: {
     title: "Tekly | Multi-Channel Customer Engagement Platform",
-    description: "Tekly helps businesses automate customer conversations, streamline communication, and manage customer engagement from one intelligent platform.",
+    description: "Tekly helps businesses automate customer conversations, manage relationships, and simplify communication from one unified platform.",
     url: "https://tekly.in",
     siteName: "Tekly",
     images: [
       {
-        url: "/logo.jpeg",
+        url: "/meta.jpg",
         width: 1200,
         height: 630,
-        alt: "Tekly Customer Engagement Platform Logo",
+        alt: "Tekly | Customer Engagement. Simplified.",
       },
     ],
     locale: "en_US",
@@ -65,9 +75,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Tekly | Multi-Channel Customer Engagement",
-    description: "Unify Instagram, WhatsApp, and email customer streams under one platform.",
-    images: ["/logo.jpeg"],
+    title: "Tekly | Multi-Channel Customer Engagement Platform",
+    description: "Tekly helps businesses automate customer conversations, manage relationships, and simplify communication from one unified platform.",
+    images: ["/meta.jpg"],
   },
   other: {
     "facebook-domain-verification": "YOUR_META_VERIFICATION_TOKEN_HERE",
@@ -87,8 +97,13 @@ export default function RootLayout({
         "@type": "Organization",
         "@id": "https://tekly.in/#organization",
         "name": "Tekly",
+        "parentOrganization": {
+          "@type": "Organization",
+          "name": "Thrivex Labs"
+        },
         "url": "https://tekly.in",
         "logo": "https://tekly.in/logo.jpeg",
+        "email": "hello@tekly.in",
         "sameAs": [
           "https://www.linkedin.com/company/tekly"
         ],
@@ -113,7 +128,7 @@ export default function RootLayout({
         "@type": "SoftwareApplication",
         "@id": "https://tekly.in/#software",
         "name": "Tekly",
-        "operatingSystem": "All",
+        "operatingSystem": "Web",
         "applicationCategory": "BusinessApplication",
         "url": "https://tekly.in",
         "publisher": {

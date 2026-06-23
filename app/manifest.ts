@@ -2,13 +2,13 @@ import { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Tekly Customer Engagement Platform",
+    name: "Tekly | Multi-Channel Customer Engagement Platform",
     short_name: "Tekly",
-    description: "Unify customer channels and automate Instagram responses.",
+    description: "Tekly helps businesses automate customer conversations, manage relationships, and simplify communication from one unified platform.",
     start_url: "/",
     display: "standalone",
     background_color: "#ffffff",
-    theme_color: "#581c87",
+    theme_color: "#2563EB",
     icons: [
       {
         src: "/logo.jpeg",

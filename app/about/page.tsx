@@ -1,6 +1,15 @@
+import { Metadata } from "next";
 import { Navbar } from "@/components/marketing/navbar";
 import { Footer } from "@/components/marketing/footer";
 import { Sparkles, Combine, Brain, Eye } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "About Tekly | Our Story & Vision",
+  description: "Learn how Tekly by Thrivex Labs is building the future of multi-channel customer engagement and conversation automation from Hyderabad, India.",
+  alternates: {
+    canonical: "/about",
+  },
+};
 
 export default function AboutPage() {
   const values = [

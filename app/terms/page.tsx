@@ -1,5 +1,14 @@
+import { Metadata } from "next";
 import { Navbar } from "@/components/marketing/navbar";
 import { Footer } from "@/components/marketing/footer";
+
+export const metadata: Metadata = {
+  title: "Terms of Service | Tekly Customer Engagement",
+  description: "Read the Terms of Service for using the Tekly website and joining the early access waitlist program.",
+  alternates: {
+    canonical: "/terms",
+  },
+};
 
 export default function TermsPage() {
   return (

@@ -1,5 +1,14 @@
+import { Metadata } from "next";
 import { Navbar } from "@/components/marketing/navbar";
 import { Footer } from "@/components/marketing/footer";
+
+export const metadata: Metadata = {
+  title: "Data Deletion Request | Tekly Customer Engagement",
+  description: "Request removal of your waitlist lead data and contact details from the Tekly platform databases.",
+  alternates: {
+    canonical: "/data-deletion",
+  },
+};
 
 export default function DataDeletionPage() {
   return (

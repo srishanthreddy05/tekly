@@ -1,5 +1,14 @@
+import { Metadata } from "next";
 import { Navbar } from "@/components/marketing/navbar";
 import { Footer } from "@/components/marketing/footer";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy | Tekly Customer Engagement",
+  description: "Read the Privacy Policy of Tekly to understand how we collect, store, secure, and delete customer and waitlist lead data.",
+  alternates: {
+    canonical: "/privacy",
+  },
+};
 
 export default function PrivacyPage() {
   return (
