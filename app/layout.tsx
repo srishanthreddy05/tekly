@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Inter } from "next/font/google";
+import { Geist, Geist_Mono, Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/app/providers/theme-provider";
@@ -9,6 +9,12 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
+});
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+  variable: "--font-serif",
 });
 
 const geistSans = Geist({
@@ -124,7 +130,8 @@ export default function RootLayout({
         "h-full antialiased scroll-smooth",
         geistSans.variable,
         geistMono.variable,
-        inter.variable
+        inter.variable,
+        playfair.variable
       )}
       suppressHydrationWarning
     >

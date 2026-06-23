@@ -71,7 +71,7 @@ export function WaitlistForm() {
             id="name-input"
             type="text"
             placeholder="Srishanth Reddy"
-            className="h-10 bg-background rounded-lg border border-input focus:border-primary text-sm shadow-inner"
+            className="h-11 bg-white rounded-xl border border-slate-200 focus:border-[#2563EB] focus:ring-2 focus:ring-[#2563EB]/10 text-sm shadow-sm transition-all duration-200"
             disabled={isSubmitting}
             aria-invalid={!!errors.name}
             {...register("name")}
@@ -92,7 +92,7 @@ export function WaitlistForm() {
             id="email-input"
             type="email"
             placeholder="srishanthreddyy05@gmail.com"
-            className="h-10 bg-background rounded-lg border border-input focus:border-primary text-sm shadow-inner"
+            className="h-11 bg-white rounded-xl border border-slate-200 focus:border-[#2563EB] focus:ring-2 focus:ring-[#2563EB]/10 text-sm shadow-sm transition-all duration-200"
             disabled={isSubmitting}
             aria-invalid={!!errors.email}
             {...register("email")}
@@ -108,7 +108,7 @@ export function WaitlistForm() {
         <Button
           type="submit"
           disabled={isSubmitting}
-          className="w-full h-10 font-bold rounded-lg bg-gradient-to-r from-primary via-indigo-600 to-neon-green hover:opacity-95 text-primary-foreground shadow-[0_4px_15px_rgba(99,102,241,0.15)] hover:shadow-[0_4px_20px_rgba(57,255,20,0.22)] cursor-pointer mt-2 text-xs flex items-center justify-center gap-1.5 transition-all duration-300 border border-transparent"
+          className="w-full h-11 font-bold rounded-full bg-[#2563EB] hover:bg-blue-700 text-white shadow-md hover:shadow-lg hover:-translate-y-0.5 cursor-pointer mt-2 text-xs flex items-center justify-center gap-1.5 transition-all duration-200 border border-transparent"
         >
           {isSubmitting ? (
             <>

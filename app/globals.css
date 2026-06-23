@@ -2,12 +2,33 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
+/* Hide scrollbars globally */
+* {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+*::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+html, body, :root {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+html::-webkit-scrollbar, body::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-sans);
+  --font-serif: var(--font-serif);
   --font-mono: var(--font-geist-mono);
   --font-heading: var(--font-sans);
   --color-sidebar-ring: var(--sidebar-ring);
@@ -126,14 +147,25 @@
     @apply border-border outline-ring/50;
   }
   body {
-    background: radial-gradient(at 0% 0%, oklch(0.86 0.24 142 / 15%) 0px, transparent 60%),
-                radial-gradient(at 100% 0%, oklch(0.88 0.22 96 / 10%) 0px, transparent 50%),
-                radial-gradient(at 50% 100%, oklch(0.86 0.24 142 / 8%) 0px, transparent 50%),
-                oklch(0.995 0.002 240);
-    background-attachment: fixed;
+    background-color: #FAFBFC;
     @apply text-foreground;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  body::-webkit-scrollbar {
+    display: none;
   }
   html {
     @apply font-sans scroll-smooth;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
+  html::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Hide scrollbar globally for any element */
+::-webkit-scrollbar {
+  display: none !important;
 }

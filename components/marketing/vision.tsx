@@ -1,102 +1,84 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Sparkles, MessageCircle, BarChart3, HelpCircle, Layers, Mail, Database, BrainCircuit } from "lucide-react";
+import { 
+  MessageCircle, 
+  MessageSquare, 
+  Mail, 
+  Database, 
+  Cpu, 
+  PhoneCall, 
+  Combine,
+  ChevronRight
+} from "lucide-react";
 import { Instagram } from "@/components/ui/icons";
+import { motion } from "framer-motion";
 
 export function Vision() {
-  const steps = [
-    {
-      badge: "Today",
-      title: "Instagram Automation",
-      description: "Direct message keyword replies, comment automation, and automatic lead tracking. Fully operational now.",
-      icon: Instagram,
-      active: true,
-    },
-    {
-      badge: "Q3 Beta",
-      title: "Multi-Channel Messaging",
-      description: "WhatsApp Business API integrations, Facebook Messenger, and secure SMS pipelines operating in unified streams.",
-      icon: MessageCircle,
-      active: false,
-    },
-    {
-      badge: "Q4 Roadmap",
-      title: "CRM & AI Agents",
-      description: "Unified profile hub, contact tagging, and custom-trained AI message dispatchers that reply to inquiries.",
-      icon: BrainCircuit,
-      active: false,
-    },
-    {
-      badge: "Upcoming",
-      title: "Voice AI & Workflow Builder",
-      description: "Inbound phone agents and canvas workflow builders that route complex business operations.",
-      icon: Layers,
-      active: false,
-    },
+  const channels = [
+    { name: "Instagram", icon: Instagram, color: "text-pink-500 bg-pink-50" },
+    { name: "WhatsApp", icon: MessageCircle, color: "text-emerald-600 bg-emerald-50" },
+    { name: "Facebook", icon: MessageSquare, color: "text-blue-600 bg-blue-50" },
+    { name: "Email", icon: Mail, color: "text-amber-600 bg-amber-50" },
+    { name: "SMS", icon: MessageSquare, color: "text-indigo-600 bg-indigo-50" },
+    { name: "CRM", icon: Database, color: "text-purple-650 bg-purple-50" },
+    { name: "AI Agents", icon: Cpu, color: "text-sky-600 bg-sky-50" },
+    { name: "AI Voice Calls", icon: PhoneCall, color: "text-teal-600 bg-teal-50" },
+    { name: "One Platform", icon: Combine, color: "text-[#00473e] bg-[#e8f8f0] border-emerald-200/50" },
   ];
 
   return (
-    <section id="vision" className="w-full py-20 lg:py-28 border-b border-border bg-background">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section id="vision" className="w-full py-20 lg:py-28 border-b border-slate-100 bg-[#FAFBFC] relative overflow-hidden">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 text-center flex flex-col gap-14">
         
-        {/* Title block */}
-        <div className="max-w-3xl flex flex-col gap-4 text-left mb-16">
-          <span className="text-xs font-bold uppercase tracking-wider text-primary">Core Expansion Vision</span>
-          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            One Platform. Every Customer Conversation.
-          </h2>
-          <p className="text-base text-muted-foreground leading-relaxed">
-            Tekly is designed to unify all customer touchpoints. Our roadmap charts the progression from social automation to a complete omnichannel business engine.
-          </p>
-        </div>
+        {/* Visual Channel Sequence */}
+        <div className="flex flex-wrap items-center justify-center gap-y-4 gap-x-2 md:gap-x-3">
+          {channels.map((channel, index) => {
+            const IconComponent = channel.icon;
+            const isLast = index === channels.length - 1;
 
-        {/* 4-column visual step layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {steps.map((step, idx) => {
-            const IconComponent = step.icon;
             return (
-              <div
-                key={idx}
-                className={`p-6 rounded-2xl border transition-all duration-200 flex flex-col justify-between aspect-[1/1] ${
-                  step.active
-                    ? "bg-card border-primary shadow-md relative overflow-hidden"
-                    : "bg-card/45 border-border/80"
-                }`}
-              >
-                {step.active && (
-                  <div className="absolute top-0 right-0 transform translate-x-4 -translate-y-4 w-12 h-12 bg-primary/10 rounded-full blur-md" />
-                )}
-
-                <div className="flex justify-between items-start">
-                  <div className={`w-9 h-9 rounded-lg flex items-center justify-center border shrink-0 ${
-                    step.active
-                      ? "bg-primary/10 border-primary/20 text-primary"
-                      : "bg-background border-border text-muted-foreground"
-                  }`}>
-                    <IconComponent className="w-5 h-5" />
+              <div key={index} className="flex items-center gap-2 md:gap-3">
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.08, duration: 0.4 }}
+                  className={`flex items-center gap-2 px-3.5 py-2 rounded-full border border-border bg-white shadow-sm cursor-default transition-all duration-300 hover:shadow-md hover:border-slate-300/80`}
+                >
+                  <div className={`w-6 h-6 rounded-full flex items-center justify-center shrink-0 ${channel.color}`}>
+                    <IconComponent className="w-3.5 h-3.5" />
                   </div>
-                  
-                  <span className={`text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded ${
-                    step.active
-                      ? "bg-primary text-primary-foreground"
-                      : "bg-accent text-muted-foreground"
-                  }`}>
-                    {step.badge}
+                  <span className="text-xs font-bold text-slate-800 tracking-tight font-sans">
+                    {channel.name}
                   </span>
-                </div>
+                </motion.div>
 
-                <div className="flex flex-col gap-1.5 mt-4">
-                  <h4 className="text-sm font-bold text-foreground tracking-tight">
-                    {step.title}
-                  </h4>
-                  <p className="text-xs text-muted-foreground leading-relaxed">
-                    {step.description}
-                  </p>
-                </div>
+                {!isLast && (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.08 + 0.04 }}
+                    className="text-slate-300"
+                  >
+                    <ChevronRight className="w-4 h-4" />
+                  </motion.div>
+                )}
               </div>
             );
           })}
+        </div>
+
+        {/* Vision Tagline */}
+        <div className="max-w-3xl mx-auto">
+          <motion.p 
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-lg sm:text-xl text-slate-800 leading-relaxed font-normal font-serif italic tracking-tight px-4"
+          >
+            "Our vision is to simplify customer engagement by bringing every communication channel into one intelligent workspace."
+          </motion.p>
         </div>
 
       </div>

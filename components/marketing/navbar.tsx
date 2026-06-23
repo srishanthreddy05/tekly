@@ -1,29 +1,26 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useTheme } from "next-themes";
-import { Sun, Moon, Menu, X, ArrowUpRight } from "lucide-react";
-import { Button, buttonVariants } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 
 export function Navbar() {
-  const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 15);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const handleScrollTo = (id: string) => {
-    setMobileMenuOpen(false);
     const element = document.getElementById(id);
     if (element) {
-      const offset = 100; // slightly larger offset for floating navbar
+      const offset = 100; // Offset for floating navbar
       const bodyRect = document.body.getBoundingClientRect().top;
       const elementRect = element.getBoundingClientRect().top;
       const elementPosition = elementRect - bodyRect;
@@ -40,19 +37,21 @@ export function Navbar() {
     if (pathname === "/") {
       e.preventDefault();
       handleScrollTo(id);
-    } else {
-      setMobileMenuOpen(false);
     }
   };
 
   return (
-    <header className="sticky top-4 z-50 w-full px-4 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-7xl rounded-full border border-border/80 bg-background/75 backdrop-blur-md shadow-sm transition-all duration-200 py-2.5 px-6 flex items-center justify-between">
+    <header className="sticky top-6 z-50 w-full px-4 sm:px-6 lg:px-8">
+      <div className={`mx-auto max-w-5xl rounded-full border py-3 px-8 flex items-center justify-between transition-all duration-300 ${
+        isScrolled 
+          ? "bg-white/70 backdrop-blur-xl shadow-[0_8px_32px_rgba(15,23,42,0.03)] border-slate-200/80" 
+          : "bg-white/35 backdrop-blur-md shadow-none border-transparent"
+      }`}>
         
         {/* Logo and Brand */}
         <Link 
           href="/" 
-          className="flex items-center gap-2.5 cursor-pointer"
+          className="flex items-center gap-2 cursor-pointer"
           onClick={(e) => {
             if (pathname === "/") {
               e.preventDefault();
@@ -60,7 +59,7 @@ export function Navbar() {
             }
           }}
         >
-          <div className="relative w-8 h-8 rounded-lg overflow-hidden border border-border bg-white shadow-sm flex items-center justify-center">
+          <div className="relative w-6.5 h-6.5 rounded-lg overflow-hidden border border-border bg-white shadow-sm flex items-center justify-center">
             <Image
               src="/logo.jpeg"
               alt="Tekly Logo"
@@ -69,122 +68,30 @@ export function Navbar() {
               className="object-cover"
             />
           </div>
-          <span className="text-base font-bold tracking-tight text-foreground font-sans">
+          <span className="text-base font-black italic tracking-wide text-slate-900 font-serif">
             Tekly
           </span>
         </Link>
 
-        {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center gap-6 lg:gap-8">
-          <Link
-            href="/#features"
-            onClick={(e) => handleNavClick(e, "features")}
-            className="text-xs font-semibold text-muted-foreground hover:text-foreground transition-colors"
-          >
-            Features
-          </Link>
+        {/* Minimal Navigation links */}
+        <nav className="flex items-center gap-5 sm:gap-6">
           <Link
             href="/#vision"
             onClick={(e) => handleNavClick(e, "vision")}
-            className="text-xs font-semibold text-muted-foreground hover:text-foreground transition-colors"
+            className="text-[11px] sm:text-xs font-bold text-slate-500 hover:text-slate-955 transition-colors"
           >
             Vision
           </Link>
           <Link
-            href="/#roadmap"
-            onClick={(e) => handleNavClick(e, "roadmap")}
-            className="text-xs font-semibold text-muted-foreground hover:text-foreground transition-colors"
-          >
-            Roadmap
-          </Link>
-          <Link
-            href="/#faq"
-            onClick={(e) => handleNavClick(e, "faq")}
-            className="text-xs font-semibold text-muted-foreground hover:text-foreground transition-colors"
-          >
-            FAQ
-          </Link>
-        </nav>
-
-        {/* Global Utilities */}
-        <div className="hidden md:flex items-center gap-4">
-          <Link
             href="/#waitlist"
             onClick={(e) => handleNavClick(e, "waitlist")}
-            className={cn(
-              buttonVariants({ variant: "default", size: "sm" }),
-              "font-medium cursor-pointer rounded-full text-xs px-4"
-            )}
-          >
-            Join Waitlist
-            <ArrowUpRight className="ml-1 h-3.5 w-3.5" />
-          </Link>
-        </div>
-
-        {/* Mobile Controls */}
-        <div className="flex md:hidden items-center gap-2">
-          <Link
-            href="/#waitlist"
-            onClick={(e) => handleNavClick(e, "waitlist")}
-            className={cn(
-              buttonVariants({ variant: "default", size: "xs" }),
-              "rounded-full text-[11px] px-3 font-semibold mr-1 animate-shimmer"
-            )}
+            className="px-4 py-1.5 rounded-full bg-[#2563EB] hover:bg-blue-700 text-white text-[11px] sm:text-xs font-extrabold transition-all duration-200 shadow-sm hover:shadow-md hover:-translate-y-0.5"
           >
             Waitlist
           </Link>
+        </nav>
 
-          <Button
-            variant="ghost"
-            size="icon"
-            className="rounded-full h-8 w-8 hover:bg-accent/40"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle navigation menu"
-          >
-            {mobileMenuOpen ? (
-              <X className="h-4 w-4 text-foreground" />
-            ) : (
-              <Menu className="h-4 w-4 text-foreground" />
-            )}
-          </Button>
-        </div>
       </div>
-
-      {/* Mobile Drawer (Slide down absolute menu) */}
-      {mobileMenuOpen && (
-        <div className="absolute top-16 left-4 right-4 z-50 rounded-2xl border border-border bg-card/95 backdrop-blur-md px-5 py-6 flex flex-col gap-4 shadow-lg md:hidden">
-          <nav className="flex flex-col gap-3">
-            <Link
-              href="/#features"
-              onClick={(e) => handleNavClick(e, "features")}
-              className="text-left text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors py-1.5"
-            >
-              Features
-            </Link>
-            <Link
-              href="/#vision"
-              onClick={(e) => handleNavClick(e, "vision")}
-              className="text-left text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors py-1.5"
-            >
-              Vision
-            </Link>
-            <Link
-              href="/#roadmap"
-              onClick={(e) => handleNavClick(e, "roadmap")}
-              className="text-left text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors py-1.5"
-            >
-              Roadmap
-            </Link>
-            <Link
-              href="/#faq"
-              onClick={(e) => handleNavClick(e, "faq")}
-              className="text-left text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors py-1.5"
-            >
-              FAQ
-            </Link>
-          </nav>
-        </div>
-      )}
     </header>
   );
 }
