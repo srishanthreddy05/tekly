@@ -77,6 +77,9 @@ export const metadata: Metadata = {
     description: "Tekly helps businesses automate customer conversations, manage relationships, and simplify communication from one unified platform.",
     images: ["/logo.jpeg"],
   },
+  verification: {
+    google: "googled1351b0894693372",
+  },
   other: {
     "facebook-domain-verification": "YOUR_META_VERIFICATION_TOKEN_HERE",
   },
